@@ -1,0 +1,196 @@
+{
+  "ID": "do_AliOSS",
+  "IsContainer": "0",
+  "Type": "SM",
+  "UIType": "Layout",
+  "Name": "阿里云存储",
+  "Version": "Internal",
+  "Description": "阿里云对象存储服务（Object Storage Service，简称 OSS），是阿里云提供的海量、安全、低成本、高可靠的云存储服务",
+  "Icon": "",
+  "BBS": "",
+  "Keyword": "阿里云存储",
+  "IOS": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Android": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "simpleDownloadProgress",
+      "Description": "simpleDownload文件下载进度事件",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "返回值包含两个节点{fileSize:'23234245',percent:'20'}单位分别为kB和%",
+      "Deprecated": false
+    },
+    {
+      "ID": "simpleUploadProgress",
+      "Description": "simpleUpload文件上传进度事件",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "返回值包含两个节点{fileSize:'23234245',percent:'20'}单位分别为kB和%",
+      "Deprecated": false
+    }
+  ],
+  "syncMethodes": [],
+  "asyncMethodes": [
+    {
+      "ID": "simpleDownload",
+      "Name": "从阿里云下载文件",
+      "Description": "根据用户所提供的的accessKeyId,accessKeySecret,endPoint以及bucket(阿里云存储空间名称)从阿里云存储下载文件(适用于小文件下载)",
+      "ReturnType": "Bool",
+      "ReturnType_JavaScript": "Bool",
+      "ReturnDesc": "下载成功返回true，下载失败返回false",
+      "Paras": [
+        {
+          "ID": "accessKeyId",
+          "Name": "用户凭证",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "用户凭证是阿里云存储颁发给用户的标识",
+          "Deprecated": false
+        },
+        {
+          "ID": "accessKeySecret",
+          "Name": "签名密钥",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "",
+          "Deprecated": false
+        },
+        {
+          "ID": "endPoint",
+          "Name": "endPoint是阿里云服务在各个区域的地址,详细可参考链接https://help.aliyun.com/document_detail/31837.html?spm=5176.doc32044.2.5.zHTUSx,例如要操作的bucket地址是华北 2,endPoint就是oss-cn-beijing.aliyuncs.com",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "",
+          "Deprecated": false
+        },
+        {
+          "ID": "fileName",
+          "Name": "要下载的文件名称(路径)",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "例如temp/a.jpg,就是temp目录下,文件名为a.jpg的文件,如果不写前面的目录地址,则找到的就是Bucket根目录下面的a.jpg文件",
+          "Deprecated": false
+        },
+        {
+          "ID": "path",
+          "Name": "保存地址",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "下载到本地的文件的全路径，只支持data://",
+          "Deprecated": false
+        },
+        {
+          "ID": "bucket",
+          "Name": "阿里存储空间名称",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "要下载的文件所在的bucket名称",
+          "Deprecated": false
+        }
+      ],
+      "Deprecated": false
+    },
+    {
+      "ID": "simpleUpload",
+      "Name": "上传文件",
+      "Description": "根据用户所提供的的accessKeyId,accessKeySecret,endPoint以及bucket(阿里云存储空间名称)把文件上传到阿里云存储",
+      "ReturnType": "Bool",
+      "ReturnType_JavaScript": "Bool",
+      "ReturnDesc": "上传成功返回true,否则返回false",
+      "Paras": [
+        {
+          "ID": "accessKeyId",
+          "Name": "用户凭证",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "用户凭证是阿里云存储颁发给用户的标识",
+          "Deprecated": false
+        },
+        {
+          "ID": "accessKeySecret",
+          "Name": "签名密钥",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "",
+          "Deprecated": false
+        },
+        {
+          "ID": "endPoint",
+          "Name": "endPoint是阿里云服务在各个区域的地址,详细可参考链接https://help.aliyun.com/document_detail/31837.html?spm=5176.doc32044.2.5.zHTUSx,例如要操作的bucket地址是华北 2,endPoint就是oss-cn-beijing.aliyuncs.com",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "",
+          "Deprecated": false
+        },
+        {
+          "ID": "filePath",
+          "Name": "要上传的文件路径",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "支持data://目录文件",
+          "Deprecated": false
+        },
+        {
+          "ID": "bucket",
+          "Name": "阿里存储空间名称",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "存储空间可以有多个,根据名称存储到对应的存储空间里面",
+          "Deprecated": false
+        },
+        {
+          "ID": "savePath",
+          "Name": "上传后的文件名称(路径)",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "文件上传到阿里云之后要保存的名称，缺省为原文件名。另外阿里云支持上传目录,例如temp/a.jpg,就是上传到temp目录下,文件名为a.jpg,如果不写前面的目录地址,则直接保存在Bucket下面的根目录",
+          "Deprecated": false
+        }
+      ],
+      "Deprecated": false
+    }
+  ]
+}
